@@ -2,7 +2,10 @@
 ssh nard8102@192.168.50.75
 
 ## Connect vm-linux-01
-ssh -i TFlinuxSSH nard8102@20.232.99.35
+ssh -i TFlinuxSSH nard8102@52.249.180.187
 
 ## Troubleshooting
 k logs wordpress-mysql-85bf68885-b5wj4 -p
+
+## mysql
+mysql -u root -p
