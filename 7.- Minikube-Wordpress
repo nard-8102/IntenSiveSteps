@@ -1,5 +1,7 @@
 ## Documentation
 https://phoenixnap.com/kb/kubernetes-wordpress
+https://faun.pub/deploying-wordpress-and-mysql-on-kubernetes-with-persistent-volumes-1a999607269f
+
 
 ## ADD repository
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -14,3 +16,6 @@ helm install wp-test bitnami/wordpress
 
 export SERVICE_IP=$(kubectl get svc --namespace default wp-test-wordpress --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
 echo "WordPress URL: http://$SERVICE_IP/"
+
+#Troubleshotting
+kubectl logs -l app=wordpress
