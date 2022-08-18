@@ -1,0 +1,32 @@
+## hello minikube
+https://kubernetes.io/docs/tutorials/hello-minikube/
+
+## minikubedashboard URL
+minikube dashboard --url
+
+## Create deployment
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+
+## Validate deployment
+kubectl get deployment
+
+## Validate Pods
+kubectl get Pods
+
+## Cluster events
+kubectl get events
+
+## view configuration
+kubectl config view
+
+## Create services LoadBalancer
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+
+## Get services
+kubectl get services
+
+## Enabled addons
+minikube addons list
+
+## View Pods and services
+kubectl get pod,svc -n kube-system
