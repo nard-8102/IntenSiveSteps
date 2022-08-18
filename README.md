@@ -7,7 +7,7 @@ Tecnologías: Minikube (Kubernetes), Terraform, HELMInstalas minikube y helm usa
 https://kubernetes.io/docs/tasks/tools/ 
 https://kubernetes.io/docs/tutorials/hello-minikube/ 
 https://helm.sh/docs/intro/install/ 
-https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/ Con tu cluster de minikube, 
+https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/  -- Con tu cluster de minikube, 
 
 lo que vas a hacer es montar un wordpress usando helm.  https://phoenixnap.com/kb/kubernetes-wordpressVas a instalar terraform, tflint y terraform docs.
 

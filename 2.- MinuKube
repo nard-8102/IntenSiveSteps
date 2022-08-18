@@ -1,0 +1,24 @@
+## Minikube webpage
+https://minikube.sigs.k8s.io/docs/start/
+
+## Binary Download
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+## Minikube default driver virtualbox
+minikube config set driver virtualbox
+
+## Install Driver virtualbox (error disable bios nested)
+sudo apt-get install virtualbox 
+
+## Install driver docker
+minikube config set driver docker
+
+## Start Cluster
+minikube start
+
+
+## Deployment on Azure
+https://github.com/AzureRED/MiniKube-on-Azure-VM
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/v1.26.1/minikube-linux-amd64

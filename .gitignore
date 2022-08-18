@@ -1,0 +1,5 @@
+## Exclude Files
+/c/WORKSPACE/VSCODE/IntenSiveSteps/AzureInfra/.terraform
+C:\WORKSPACE\VSCODE\IntenSiveSteps\AzureInfra\.terraform
+AzureInfra/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.0.0/windows_amd64/terraform-provider-azurerm_v3.0.0_x5.exe
+C:\WORKSPACE\VSCODE\IntenSiveSteps\AzureInfra\.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.0.0/windows_amd64/terraform-provider-azurerm_v3.0.0_x5.exe

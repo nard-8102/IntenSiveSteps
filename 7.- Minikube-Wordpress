@@ -1,0 +1,16 @@
+## Documentation
+https://phoenixnap.com/kb/kubernetes-wordpress
+
+## ADD repository
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+## Update helm repository
+helm repo Update
+
+## Install chart
+helm install wp-test bitnami/wordpress
+
+## To access your WordPress site from outside the cluster follow the steps below:
+
+export SERVICE_IP=$(kubectl get svc --namespace default wp-test-wordpress --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
+echo "WordPress URL: http://$SERVICE_IP/"

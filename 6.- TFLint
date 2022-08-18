@@ -1,0 +1,14 @@
+# Install TFlint
+https://github.com/terraform-linters/tflint
+
+## linux bash
+curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+## Verification
+gpg --import 8CE69160EB3F2FE9.key
+gpg --verify checksum.txt.sig checksum.txt
+sha256sum --ignore-missing -c checksums.txt
+
+## check version
+tflint --version
+
