@@ -1,32 +1,31 @@
-resource "kubernetes_deployment" "hellonode" {
+resource "kubernetes_deployment" "hello-node" {
   metadata {
-    name = "deployment-tf-hellonode"
+    name = "tf-hellonode"
     labels = {
-      App = "hellonode"
+      test = "frontnode"
     }
   }
 
   spec {
-    replicas = 2
+    replicas = 3
+
     selector {
       match_labels = {
-        App = "hellonode"
+        test = "frontnode"
       }
     }
+
     template {
       metadata {
         labels = {
-          App = "hellonode"
+          test = "frontnode"
         }
       }
+
       spec {
         container {
-          image = "k8s.gcr.io/echoserver:1.4"
-          name  = "cr-hellonode"
-
-          port {
-            container_port = 80
-          }
+          image = "yeasy/simple-web"
+          name  = "webapp"
 
           resources {
             limits = {
@@ -38,26 +37,38 @@ resource "kubernetes_deployment" "hellonode" {
               memory = "50Mi"
             }
           }
+
+          liveness_probe {
+            http_get {
+              path = "/"
+              port = 80
+
+              http_header {
+                name  = "X-Custom-Header"
+                value = "Awesome"
+              }
+            }
+
+            initial_delay_seconds = 3
+            period_seconds        = 3
+          }
         }
       }
     }
   }
 }
 
-resource "kubernetes_service" "nginx" {
-  metadata {
-    name = "service-hellonode"
-  }
-  spec {
-    selector = {
-      App = kubernetes_deployment.hellonode.spec.0.template.0.metadata[0].labels.App
-    }
-    port {
-      node_port   = 30201
-      port        = 80
-      target_port = 80
-    }
-
-    type = "NodePort"
-  }
+resource "kubernetes_service" "hellonode-service" {
+ metadata {
+   name = "tf-hellonode"
+ }
+ spec {
+   selector = kubernetes_deployment.hello-node.metadata.0.labels
+   port {
+     port        = 80
+     target_port = 80
+     node_port = 32000
+   }
+   type = "NodePort"
+ }
 }
