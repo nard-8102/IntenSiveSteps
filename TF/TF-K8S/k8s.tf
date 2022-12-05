@@ -24,7 +24,7 @@ resource "kubernetes_deployment" "wordpress" {
    labels = local.wordpress_labels
  }
  spec {
-   replicas = 1
+   replicas = 2
    selector {
      match_labels = local.wordpress_labels
    }
@@ -34,7 +34,7 @@ resource "kubernetes_deployment" "wordpress" {
      }
      spec {
        container {
-         image = "wordpress:6.1-apache"
+         image = "wordpress"
          name  = "wordpress"
          port {
            container_port = 80
