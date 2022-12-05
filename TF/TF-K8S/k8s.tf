@@ -34,7 +34,7 @@ resource "kubernetes_deployment" "wordpress" {
      }
      spec {
        container {
-         image = "wordpress:4.8-apache"
+         image = "wordpress:6.1-apache"
          name  = "wordpress"
          port {
            container_port = 80
@@ -122,4 +122,3 @@ resource "kubernetes_service" "mysql-service" {
    type = "NodePort"
  }
 }
-
